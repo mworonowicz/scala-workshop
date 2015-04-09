@@ -14,7 +14,7 @@ object ScalaObjects extends App {
     override def toString = s"hp $hp with ${Car.maxSpeed(hp)} max speed"
   }
 
-  new Car()
+  // new Car()
 
   // companion object
   object Car {
@@ -22,7 +22,9 @@ object ScalaObjects extends App {
     def maxSpeed(hp: Int) = 2 * hp
   }
 
-  println(Car())
+  // println(Car())
+
+  // composition with traits
 
   trait Engine {
     def speedup = println("speeding up")
@@ -43,8 +45,8 @@ object ScalaObjects extends App {
   }
 
   val ford = new Ford(200)
-  println(ford)
-  ford.ride
+  // println(ford)
+  // ford.ride
 
   // pattern matching
 
@@ -72,14 +74,14 @@ object ScalaObjects extends App {
     case _ => println("wrong score")
   }
 
-  showScores(Golf(2))
-  showScores(Darts(3))
-  showScores(Darts(-3))
-  showScores(Football(3, 2))
+  // showScores(Golf(2))
+  // showScores(Darts(3))
+  // showScores(Darts(-3))
+  // showScores(Football(3, 2))
 
-  val volleyballScore = Volleyball((25, 23), (23, 25), (25, 20), Some((25, 19)))
-  showScores(volleyballScore)
-  showScores(volleyballScore.copy(set5 = Some(15, 13)))
+  // val volleyballScore = Volleyball((25, 23), (23, 25), (25, 20), Some((25, 19)))
+  // showScores(volleyballScore)
+  // showScores(volleyballScore.copy(set5 = Some(15, 13)))
 
   //linearization
 
