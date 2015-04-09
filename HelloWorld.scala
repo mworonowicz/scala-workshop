@@ -55,5 +55,12 @@ object HelloWorld extends App {
 	implicit val implicitFormatter =  { p:String => println(s"*${p}*") }
 
 	createImplicitGreeting("I'm seek and tired of saying hello")
+ 
+
+
+	val greetingFormatter :  String => String = p =>  s"""$p $recipient !"""
+
+    
+    println(greetingFormatter("Hi"))
 
 }
