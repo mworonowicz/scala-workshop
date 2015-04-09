@@ -2,23 +2,38 @@ package scalaworkshop
 
 object HelloWorld extends App {
 
+   // mutable vs immutable
+   
 	val greeting = "Hello "
 	var recipient  = "world"
 
-
-	val initNow = {
-		println("init now")
+	def setGreetingRecipient(recipient: String = "world") : Unit = {
+		this.recipient =  recipient
 	}
+
+
+	setGreetingRecipient("guys")
+	println(s"${greeting} ${recipient}")
+
+	setGreetingRecipient()
+	println(recipient)
+
+
+    // lazy init
 
 	lazy val initLater =  {   
 		println("initialized")
  
 	}
 
-	def setGreetingRecipient(recipient: String = "world") : Unit = {
-		this.recipient =  recipient
+    val initNow = {
+		println("init now")
 	}
 
+	initLater
+
+
+	// call by name
 
 	def callByName(block: => Unit ) = {
 		println("There will be a greeting")
@@ -27,21 +42,17 @@ object HelloWorld extends App {
 	}
 
 
-	def createGreeting(printGreeting: String => Unit)(recipient: String) = {
-		printGreeting(recipient)
-	}
-
-	setGreetingRecipient("guys")
-	println(s"${greeting} ${recipient}")
-
-	setGreetingRecipient()
-	println(recipient)
-	initLater
-
 	callByName({
 		 setGreetingRecipient("everyone");println(s"""${greeting} for "${recipient}" """)
 	})
 
+   // currying
+
+	def createGreeting(printGreeting: String => Unit)(recipient: String) = {
+		printGreeting(recipient)
+	}
+
+	
 	createGreeting { 
 	 p =>	println(s"'${greeting}"+ p +"'")
 	}("and goodbye")
@@ -49,6 +60,10 @@ object HelloWorld extends App {
 	val formattedGreeting =  createGreeting {  p:String =>	println(s"'${greeting}"+ p +"'") } _
 
 	formattedGreeting("last time")
+
+
+	// implicit
+
 
     def  createImplicitGreeting(recipient:String)(implicit printGreeting: String => Unit) = printGreeting(recipient)
 
@@ -58,9 +73,10 @@ object HelloWorld extends App {
  
 
 
+   // closure
+
 	val greetingFormatter :  String => String = p =>  s"""$p $recipient !"""
 
-    
     println(greetingFormatter("Hi"))
 
 }
