@@ -14,7 +14,7 @@ object ScalaObjects extends App {
     override def toString = s"hp $hp with ${Car.maxSpeed(hp)} max speed"
   }
 
-  // new Car()
+  new Car()
 
   // companion object
   object Car {
@@ -22,7 +22,7 @@ object ScalaObjects extends App {
     def maxSpeed(hp: Int) = 2 * hp
   }
 
-  // println(Car())
+  println(Car())
 
   // composition with traits
 
@@ -45,42 +45,7 @@ object ScalaObjects extends App {
   }
 
   val ford = new Ford(200)
-  // println(ford)
-  // ford.ride
-
-  // pattern matching
-
-  sealed trait Sport
-
-  case class Golf(holes: Int) extends Sport
-  case class Darts(points: Int) extends Sport
-  case class Football(score: (Int, Int)) extends Sport
-  case class Volleyball(set1: (Int, Int), set2: (Int, Int), set3: (Int, Int), set4: Option[(Int, Int)] = None, set5: Option[(Int, Int)] = None) extends Sport
-
-  def showScores(score: Sport) = score match {
-    case Golf(s) => println(s"$s holes")
-    case Darts(p) if p > 0 => println(s"$p points")
-    case Football(s) => println(s"${s._1} goals to ${s._2}")
-    case v: Volleyball => {
-
-      def showSetScore(n: Int, set: (Int, Int)) = println(s"${n}st set ${set._1}:${set._2}")
-      showSetScore(1, v.set1)
-      showSetScore(2, v.set2)
-      showSetScore(3, v.set3)
-      v.set4.map(showSetScore(4, _))
-      v.set5.map(showSetScore(5, _)).getOrElse(println("no tie break"))
-
-    }
-    case _ => println("wrong score")
-  }
-
-  showScores(Golf(2))
-  showScores(Darts(3))
-  showScores(Darts(-3))
-  showScores(Football(3, 2))
-
-  val volleyballScore = Volleyball((25, 23), (23, 25), (25, 20), Some((25, 19)))
-  showScores(volleyballScore)
-  showScores(volleyballScore.copy(set5 = Some(15, 13)))
+  println(ford)
+  ford.ride
 
 }
