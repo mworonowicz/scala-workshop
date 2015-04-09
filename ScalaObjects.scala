@@ -74,45 +74,13 @@ object ScalaObjects extends App {
     case _ => println("wrong score")
   }
 
-  // showScores(Golf(2))
-  // showScores(Darts(3))
-  // showScores(Darts(-3))
-  // showScores(Football(3, 2))
+  showScores(Golf(2))
+  showScores(Darts(3))
+  showScores(Darts(-3))
+  showScores(Football(3, 2))
 
-  // val volleyballScore = Volleyball((25, 23), (23, 25), (25, 20), Some((25, 19)))
-  // showScores(volleyballScore)
-  // showScores(volleyballScore.copy(set5 = Some(15, 13)))
+  val volleyballScore = Volleyball((25, 23), (23, 25), (25, 20), Some((25, 19)))
+  showScores(volleyballScore)
+  showScores(volleyballScore.copy(set5 = Some(15, 13)))
 
-  //linearization
-
-  trait Fruit {
-    override def toString = "Fruit"
-  }
-
-  trait Mango extends Fruit {
-    println("add Mango")
-    override def toString = super.toString + " with Mango"
-  }
-
-  trait Orange extends Fruit {
-    println("add Orange")
-    override def toString = super.toString + " with Orange"
-  }
-
-  trait Apple extends Fruit {
-    println("add Apple")
-    override def toString = super.toString + " with Apple"
-  }
-
-  class Salad extends Fruit {
-    println("Let's do a salad")
-    override def toString = super.toString + " Salad"
-  }
-
-  class FruitSalad extends Salad with Apple with Mango with Orange {
-    println("Fruit salad is done")
-    override def toString = super.toString + " is awesome"
-  }
-
-  println(new FruitSalad())
 }
