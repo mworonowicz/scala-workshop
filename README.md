@@ -5,6 +5,7 @@
 install scala  http://www.scala-lang.org/download/install.html
 ```
 git clone https://github.com/mworonowicz/scala-workshop.git
+cd scala-workshop
 ```
 
 ## 1. Introduction to language : Hello world
@@ -16,7 +17,7 @@ git clone https://github.com/mworonowicz/scala-workshop.git
 - closure
 
 ```
-git pull origin hw2
+git checkout hw2
 scalac HelloWorld.scala
 scala scalaworkshop.HelloWorld
 ```
@@ -29,7 +30,7 @@ scala scalaworkshop.HelloWorld
 - linearization
 
 ``` 
-git pull origin so4
+git checkout so4
 scalac ScalaObjects.scala
 scala scalaworkshop.ScalaObjects
 ```
@@ -41,7 +42,7 @@ scala scalaworkshop.ScalaObjects
 - maps
 
 ```
-git pull origin sc2
+git checkout sc2
 scalac ScalaCollections.scala
 scala scalaworkshop.ScalaCollections
 ```
@@ -51,7 +52,7 @@ scala scalaworkshop.ScalaCollections
 - implicit class
 
 ```
-git pull origin si2
+git checkout si2
 scalac ScalaImplicit.scala
 scala scalaworkshop.ScalaImplicit
 ```
@@ -62,7 +63,7 @@ scala scalaworkshop.ScalaImplicit
 - lower bound type
 
 ```
-git pull origin sg2
+git checkout sg2
 scalac ScalaGeneric.scala
 scala scalaworkshop.ScalaGeneric
 ```
