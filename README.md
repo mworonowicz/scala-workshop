@@ -22,7 +22,7 @@ scalac HelloWorld.scala
 scala scalaworkshop.HelloWorld
 ```
 
-## 2. Object oriented
+## 2. Classes and objects
 - constructors
 - companion object
 - comnposition with traits
@@ -47,7 +47,7 @@ scalac ScalaCollections.scala
 scala scalaworkshop.ScalaCollections
 ```
 
-## 4. Implicit
+## 4. Implicit conversions
 - implicit conversion function
 - implicit class
 
@@ -57,10 +57,10 @@ scalac ScalaImplicit.scala
 scala scalaworkshop.ScalaImplicit
 ```
 
-## 5. Generics
+## 5. Generic classes
 - implementing linked list
 - variance
-- lower bound type
+- lower type bounds
 
 ```
 git checkout sg2
